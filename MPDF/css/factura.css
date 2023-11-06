@@ -1,0 +1,105 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.contenedor {
+    /* width: 50%; */
+    width: 100%;
+    /* max-width: 300px; */
+}
+
+.contenedor .linea {
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+}
+ 
+#tblFactura tr td > p {
+    margin: 0px;
+}
+
+#tblFactura .parrafo_inicial {
+    font-size: 18px;
+}
+
+
+#tblFactura .derecha, #tblFactura .izquierda {
+    padding: 2px 0px;
+} 
+
+#tblFactura .derecha, #tblFactura .izquierda {
+    padding: 2px 0px;
+    font-size: 18px;
+} 
+
+#tblFactura .derecha {
+    text-align: center;
+}
+
+#tblFactura .izquierda {
+    text-align: start;
+}
+
+#tblFactura .cantidad, #tblFactura .precio {
+    text-align: end;
+}
+
+#tblFactura .producto {
+    text-align: start;
+    padding-left: 1.5rem;
+}
+
+#tblFactura .lempira {
+    text-align: center;
+}
+
+#tblFactura .detalle .informacion {
+    padding-left: 1.5rem;
+    text-align: start;
+}
+
+#tblFactura .dinero_letras td {
+    padding-top: 10px;
+}
+
+#tblFactura .dinero_letras, #tblFactura .dolar {
+    font-size: 18px;
+    font-weight: 450;
+}
+
+#tblFactura .lema {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+#tblFactura .info_fac {
+    font-size: 20px;
+    font-weight: 450;
+}
+#tblFactura .data_exonerado {
+    padding-top: 10px;
+    font-weight: 500;
+}
+#tblFactura .orden {
+    padding-top: 10px;
+    text-align: start;
+    padding-left: 3rem;
+}
+
+#tblFactura .campo_orden {
+    padding-left: 3rem;
+    padding-top: 20px;
+}
+
+
+
+
+

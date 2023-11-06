@@ -1,0 +1,7 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.0",
+        "mpdf/qrcode": "^1.1",
+        "luecano/numero-a-letras": "^3.0"
+    }
+}

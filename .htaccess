@@ -1,0 +1,3 @@
+Options All -Indexes
+ErrorDocument 404 /sistemataller/vista/public/404.php
+ErrorDocument 403 /sistemataller/vista/public/403.php
