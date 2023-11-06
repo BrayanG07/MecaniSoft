@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['S_IDUSUARIO'])) { 
+if (!isset($_SESSION['S_IDUSUARIO'])) {
     header('Location: ../login.php');
 }
 
@@ -21,7 +21,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO DE COTIZACIÓNES Y ORDENES </h2>
+                            <h3 class="m-0">Mantenimiento de cotizaciónes y ordenes</h3>
                         </div>
                         <div class="col-sm-6 text-right">
 
@@ -96,66 +96,66 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 
 <!-- VENTANA MODAL REGISTRAR  -->
 <div class="modal fade" id="modal_registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Registro de facturacion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="frmFacturar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Registro de facturacion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmFacturar">
 
-            <input type="hidden" id="txtUsuarioLog" value="<?php echo $_SESSION['S_IDUSUARIO'];?>">
-            <input type="text" id="txtIdOrden" hidden>
+                    <input type="hidden" id="txtUsuarioLog" value="<?php echo $_SESSION['S_IDUSUARIO']; ?>">
+                    <input type="text" id="txtIdOrden" hidden>
 
-        <div class="col-lg-12">
-            <label for="">N° Factura: </label>
-            <input type="text" class="form-control" id="txtNumeroComprobante" readonly>
-            <input type="text" class="form-control" id="txtSerieComprobante" readonly hidden>
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">N° Factura: </label>
+                        <input type="text" class="form-control" id="txtNumeroComprobante" readonly>
+                        <input type="text" class="form-control" id="txtSerieComprobante" readonly hidden>
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">Cliente : </label>
-            <input type="text" class="form-control" id="txtCliente" readonly>
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">Cliente : </label>
+                        <input type="text" class="form-control" id="txtCliente" readonly>
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">SubTotal: </label>
-            <input type="text" class="form-control" id="txtSubtotal" readonly>
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">SubTotal: </label>
+                        <input type="text" class="form-control" id="txtSubtotal" readonly>
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">Descuento:</label>
-            <input type="text" class="form-control" id="txtDescuento" readonly>
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">Descuento:</label>
+                        <input type="text" class="form-control" id="txtDescuento" readonly>
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">Impuesto:</label>
-            <input type="text" class="form-control" id="txtImpuesto" readonly>
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">Impuesto:</label>
+                        <input type="text" class="form-control" id="txtImpuesto" readonly>
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">Total a pagar:</label>
-            <input type="text" class="form-control" id="txtTotal" readonly>
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">Total a pagar:</label>
+                        <input type="text" class="form-control" id="txtTotal" readonly>
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">Monto a recibido:</label>
-            <input type="text" class="form-control" id="txtMontoR" placeholder="00.00" onkeypress="return soloNumeros(event)" maxlength="15">
-          </div>
+                    <div class="col-lg-12">
+                        <label for="">Monto a recibido:</label>
+                        <input type="text" class="form-control" id="txtMontoR" placeholder="00.00" onkeypress="return soloNumeros(event)" maxlength="15">
+                    </div>
 
-          <div class="col-lg-12">
-            <label for="">Devolver:</label>
-            <input type="text" class="form-control" id="txtDevolver" placeholder="00.00" value="00.00" readonly>
-          </div>
-
-          
+                    <div class="col-lg-12">
+                        <label for="">Devolver:</label>
+                        <input type="text" class="form-control" id="txtDevolver" placeholder="00.00" value="00.00" readonly>
+                    </div>
 
 
 
-          <!-- <div class="col-lg-12">
+
+
+                    <!-- <div class="col-lg-12">
             <label for="">Estado:</label>
 
                 <select class="form-control" name="txtEstado" id="txtEstado">
@@ -164,14 +164,14 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
               </select>
         
           </div> -->
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="facturarOrden()">Facturar</button>
-      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="facturarOrden()">Facturar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <!-- FIN VENTANA MODAL REGISTRAR  -->
 
@@ -184,7 +184,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
             $('#txtFechaInicio, #txtFechaFin').prop('disabled', false);
         }
 
-        
+
         var fecha = new Date();
         var year = fecha.getFullYear();
         var mes = fecha.getMonth() + 1;
@@ -196,8 +196,8 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
         if (mes < 10) {
             mes = '0' + mes;
         }
-        document.querySelector('#txtFechaInicio').value = (year - 1) + '-' + mes + '-' + dia;
-        document.querySelector('#txtFechaFin').value = (year + 1) + '-' + mes + '-' + dia;
+        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + '01';
+        document.querySelector('#txtFechaFin').value = year + '-' + mes + '-' + dia;
 
 
         $('#cmbMostrar').change(function() {
@@ -238,24 +238,24 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 
             // console.log('valor = ' +montoR)    
 
-            if(montoR.length == 0)return Swal.fire('Oopss', 'El valor del pago no puede estar vacio', 'warning');
+            if (montoR.length == 0) return Swal.fire('Oopss', 'El valor del pago no puede estar vacio', 'warning');
 
-            if(!isNaN(montoR)){
+            if (!isNaN(montoR)) {
 
                 cambio = (montoR - totalPagar)
 
-                if(cambio<0){
+                if (cambio < 0) {
                     document.querySelector('#txtDevolver').value = "";
                     return Swal.fire('Oopss', 'El valor del pago no debe ser menor al total a pagar', 'warning');
                 }
 
                 document.querySelector('#txtDevolver').value = cambio.toFixed(2);
-            }else{
+            } else {
                 document.querySelector('#txtMontoR').value = '';
                 return Swal.fire('Oopss', 'Valor ingresado no valido', 'warning');
             }
 
-            
+
 
 
         });

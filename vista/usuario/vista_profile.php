@@ -11,7 +11,7 @@
     }
 ?>
 <div class="content-header">
-    <div class="container-fluid">
+    <div class="container-fluid border p-3 shadow-lg rounded">
         <div class="row">
             <div class="col-lg-3 col-md-4">
                 <div class="ibox">

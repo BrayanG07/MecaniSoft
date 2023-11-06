@@ -636,9 +636,9 @@ function obtenerDatosWidgets() {
             cadena += `<div class="col-lg-3 col-6">
             <div class="small-box" id="caja1">
                 <div class="inner">
-                    <h3>L. ${parseFloat(data[0][0]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h3>
+                    <h4>L. ${parseFloat(data[0][0]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h4>
 
-                    <p>DINERO TOTAL DE VENTAS</p>
+                    <b>Dinero total de ventas</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -649,9 +649,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja2">
                 <div class="inner">
-                    <h3>L. ${parseFloat(data[0][1]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h3>
+                    <h4>L. ${parseFloat(data[0][1]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</h4>
 
-                    <p>DINERO TOTAL DE INGRESOS</p>
+                    <b>Dinero total de ingresos</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -662,9 +662,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja3">
                 <div class="inner">
-                    <h3>${data[0][2]}</h3>
+                    <h4>${data[0][2]}</h4>
 
-                    <p>VENTAS REALIZADAS</p>
+                    <b>Ventas realizadas</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
@@ -675,9 +675,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja4">
                 <div class="inner">
-                    <h3>${data[0][3]}</h3>
+                    <h4>${data[0][3]}</h4>
 
-                    <p>INGRESOS REALIZADOS</p>
+                    <b>Ingresos realizados</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
@@ -687,9 +687,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja4">
                 <div class="inner">
-                    <h3>${data[0][4]}</h3>
+                    <h4>${data[0][4]}</h4>
 
-                    <p>COTIZACIONES REALIZADOS</p>
+                    <b>Cotizaciones realizados</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
@@ -700,9 +700,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja6">
                 <div class="inner">
-                    <h3>${data[0][5]}</h3>
+                    <h4>${data[0][5]}</h4>
 
-                    <p>PRODUCTOS EXISTENTES</p>
+                    <b>Productos existentes</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
@@ -713,9 +713,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-7">
             <div class="small-box" id="caja5">
                 <div class="inner">
-                    <h3>${data[0][6]}</h3>
+                    <h4>${data[0][6]}</h4>
 
-                    <p>SERVICIOS EXISTENTES</p>
+                    <b>Servicios existentes</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
@@ -726,9 +726,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja8">
                 <div class="inner">
-                    <h3> ${data[0][7]}</h3>
+                    <h4> ${data[0][7]}</h4>
 
-                    <p>PRODUCTOS/SERVICIOS EN OFERTA</p>
+                    <b>Productos/servicios en oferta</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -739,12 +739,12 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja9">
                 <div class="inner">
-                    <h5 class="py-2">${data[0][8] == null ? `Ninguno` : data[0][8]}</h5>
+                    <h6 class="py-2">${data[0][8] == null ? `Ninguno` : data[0][8]}</h6>
 
-                    <p>EMPLEADO CON MAS VENTAS</p>
+                    <b>Persona con mas ventas</b>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
+                    <i class="ion in-stats-bars"></i>
                 </div>
             </div>
         </div>
@@ -752,9 +752,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja10">
                 <div class="inner">
-                    <h3>${data[0][9]}</h3>
+                    <h4>${data[0][9]}</h4>
 
-                    <p>MOVIMIENTOS REALIZADOS</p>
+                    <b>Movimientos realizados</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -765,9 +765,9 @@ function obtenerDatosWidgets() {
         <div class="col-lg-3 col-6">
             <div class="small-box" id="caja11">
                 <div class="inner">
-                    <h3>${data[0][10]}</h3>
+                    <h4>${data[0][10]}</h4>
 
-                    <p>AJUSTES REALIZADOS</p>
+                    <b>Ajustes realizados</b>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>

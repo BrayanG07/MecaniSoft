@@ -19,7 +19,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO DE USUARIO</h2>
+                            <h3 class="m-0">Mantenimiento de usuario</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             <button class="btn btn-info px-4" onclick="abrirModal()">Nuevo Registro</button>

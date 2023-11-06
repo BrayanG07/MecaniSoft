@@ -21,7 +21,7 @@
 
                     <div class="row my-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO VEHICULO</h2>
+                            <h3 class="m-0">Mantenimiento vehiculo</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             <button class="btn btn-info" onclick="abrirModal()">Nuevo Registro</button>

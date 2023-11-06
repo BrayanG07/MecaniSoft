@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `acceso`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `acceso` (
-  `modulo_codigo` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `modulo_codigo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `usuario_id` int NOT NULL,
-  `acceso_estado` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `acceso_estado` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`modulo_codigo`,`usuario_id`) USING BTREE,
   KEY `fk_usuario` (`usuario_id`) USING BTREE,
   CONSTRAINT `fk_modulo` FOREIGN KEY (`modulo_codigo`) REFERENCES `modulo` (`modulo_codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,16 +52,16 @@ DROP TABLE IF EXISTS `bitacora`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bitacora` (
   `id_bitacora` int NOT NULL AUTO_INCREMENT,
-  `bitacora_accion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bitacora_accion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `bitacora_fecha_hora` datetime DEFAULT NULL,
-  `bitacora_tabla` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bitacora_tabla` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `id_usuario` int DEFAULT NULL,
-  `bitacora_descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `ip_publica` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bitacora_descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `ip_publica` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_bitacora`) USING BTREE,
   KEY `fkey` (`id_usuario`) USING BTREE,
   CONSTRAINT `fkey` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=686 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=686 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,11 +83,11 @@ DROP TABLE IF EXISTS `bitacora_marca`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bitacora_marca` (
   `id_bitacora` int NOT NULL AUTO_INCREMENT,
-  `accion` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `accion` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `fecha_hora` datetime DEFAULT NULL,
-  `descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci,
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
   PRIMARY KEY (`id_bitacora`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,11 +109,11 @@ DROP TABLE IF EXISTS `categoria`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categoria` (
   `categoria_id` int NOT NULL AUTO_INCREMENT,
-  `categoria_nombre` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `categoria_nombre` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `categoria_fregistro` date DEFAULT NULL,
-  `categoria_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `categoria_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`categoria_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,12 +136,12 @@ DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `cliente_id` int NOT NULL AUTO_INCREMENT,
   `cliente_fregistro` date DEFAULT NULL,
-  `cliente_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `cliente_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `persona_id` int DEFAULT NULL,
   PRIMARY KEY (`cliente_id`) USING BTREE,
   KEY `FK_CLIENTE_PERSONA` (`persona_id`) USING BTREE,
   CONSTRAINT `FK_CLIENTE_PERSONA` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`persona_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,22 +163,22 @@ DROP TABLE IF EXISTS `configuracion`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `configuracion` (
   `conf_id` int NOT NULL AUTO_INCREMENT,
-  `conf_nombre_empresa` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_direccion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_telefono` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_celular` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_rtn` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_img_logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `conf_nombre_empresa` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_direccion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_telefono` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_celular` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_rtn` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_img_logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `conf_isv` decimal(2,2) DEFAULT NULL,
-  `conf_cai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `conf_cai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `conf_fact_fechalimite_emision` date DEFAULT NULL,
   `conf_cantidad_fact` int DEFAULT NULL,
-  `conf_numero_inicial` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `conf_numero_final` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `conf_numero_inicial` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `conf_numero_final` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `conf_preciodolar` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`conf_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +187,7 @@ CREATE TABLE `configuracion` (
 
 LOCK TABLES `configuracion` WRITE;
 /*!40000 ALTER TABLE `configuracion` DISABLE KEYS */;
-INSERT INTO `configuracion` VALUES (8,'TALLER AUTOMOTRIZ GRUPO3','Blvd. Morazán, Tegucigalpa Contiguo a Banco Atlantida','2204-5620','98786588','080360005258','tallerautomotriz905@gmail.com','img/EMP25112021121233.jpg',0.15,'A5128E-9D1T85-K2546A6-8506GE-9FF952-3B','2022-06-15',7000,'000-001-00065001','000-001-00072001',24.10);
+INSERT INTO `configuracion` VALUES (8,'MecaniSoft','Blvd. Morazán, Tegucigalpa Contiguo a Banco Atlantida','2204-5620','98786588','080360005258','tallerautomotriz905@gmail.com','img/EMP25112021121233.jpg',0.15,'A5128E-9D1T85-K2546A6-8506GE-9FF952-3B','2022-06-15',7000,'000-001-00065001','000-001-00072001',24.10);
 /*!40000 ALTER TABLE `configuracion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,13 +204,13 @@ CREATE TABLE `detalle_transaccion` (
   `detalletransaccion_cantidad` int DEFAULT NULL,
   `detalletransaccion_precio` decimal(10,2) DEFAULT NULL,
   `detalletransaccion_descuento` decimal(10,2) DEFAULT NULL,
-  `detalletransaccion_nombrepro` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `detalletransaccion_nombrepro` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `producto_id` int NOT NULL,
-  `detalletransaccion_estatus` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `detalletransaccion_estatus` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`detalletransaccion_id`) USING BTREE,
   KEY `transaccion_id` (`transaccion_id`) USING BTREE,
   CONSTRAINT `fk` FOREIGN KEY (`transaccion_id`) REFERENCES `transacciones` (`transaccion_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=839 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=839 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,12 +294,12 @@ DROP TABLE IF EXISTS `fabricante`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fabricante` (
   `id_fabricante` int NOT NULL AUTO_INCREMENT,
-  `fabricante_nombre` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `fabricante_descripcion` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `fabricante_estado` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `fabricante_nombre` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `fabricante_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `fabricante_estado` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `fabricante_fregistro` date DEFAULT NULL,
   PRIMARY KEY (`id_fabricante`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,11 +321,11 @@ DROP TABLE IF EXISTS `marca`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marca` (
   `id_marca` int NOT NULL AUTO_INCREMENT,
-  `marca_nombre` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `marca_descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci,
-  `marca_estado` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `marca_nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `marca_descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `marca_estado` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_marca`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,14 +347,14 @@ DROP TABLE IF EXISTS `modelo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `modelo` (
   `id_modelo` int NOT NULL AUTO_INCREMENT,
-  `modelo_nombre` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `modelo_descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci,
-  `modelo_estado` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `modelo_nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `modelo_descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `modelo_estado` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `id_marca` int DEFAULT NULL,
   PRIMARY KEY (`id_modelo`) USING BTREE,
   KEY `fk_modelo_marca` (`id_marca`) USING BTREE,
   CONSTRAINT `fk_modelo_marca` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -375,12 +375,12 @@ DROP TABLE IF EXISTS `modulo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `modulo` (
-  `modulo_codigo` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `modulo_nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `modulo_descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci,
-  `modulo_estado` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `modulo_codigo` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `modulo_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `modulo_descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `modulo_estado` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`modulo_codigo`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -402,19 +402,19 @@ DROP TABLE IF EXISTS `persona`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `persona` (
   `persona_id` int NOT NULL AUTO_INCREMENT,
-  `persona_nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_apepat` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_apmat` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_nrodocumento` varchar(17) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_tipodocumento` enum('IDENTIDAD','RTN','DNI','RUC','PASAPORTE') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_sexo` enum('MASCULINO','FEMENINO','OTRO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_correo` varchar(70) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_telefono` varchar(17) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `persona_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_apepat` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_apmat` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_nrodocumento` varchar(17) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_tipodocumento` enum('IDENTIDAD','RTN','DNI','RUC','PASAPORTE') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_sexo` enum('MASCULINO','FEMENINO','OTRO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_correo` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_telefono` varchar(17) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `persona_fregistro` date DEFAULT NULL,
-  `persona_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `persona_empresa` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT '',
+  `persona_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `persona_empresa` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT '',
   PRIMARY KEY (`persona_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -436,21 +436,21 @@ DROP TABLE IF EXISTS `producto`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `producto` (
   `producto_id` int NOT NULL AUTO_INCREMENT,
-  `producto_nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `producto_nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `producto_stock` int DEFAULT NULL,
   `producto_stock_minimo` int DEFAULT NULL,
   `categoria_id` int DEFAULT NULL,
   `id_fabricante` int DEFAULT NULL,
   `unidad_id` int DEFAULT NULL,
-  `producto_foto` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `producto_foto` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `producto_preciocompra` decimal(10,2) DEFAULT NULL,
   `producto_precioventa` decimal(10,2) DEFAULT NULL,
-  `producto_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `producto_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `producto_oferta` int(1) unsigned zerofill DEFAULT '0',
   `producto_descuento` decimal(2,2) DEFAULT '0.00',
-  `producto_descripcion` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `producto_descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `prod_serv_tipo` varchar(45) CHARACTER SET ujis COLLATE ujis_japanese_ci DEFAULT NULL,
-  `producto_codigo` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `producto_codigo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`producto_id`) USING BTREE,
   KEY `FK_PRODUCTO_CATEGORIA` (`categoria_id`) USING BTREE,
   KEY `FK_PRODUCTO_UNIDAD` (`unidad_id`) USING BTREE,
@@ -460,7 +460,7 @@ CREATE TABLE `producto` (
   CONSTRAINT `FK_PRODUCTO_CATEGORIA` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`categoria_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_PRODUCTO_FABRICANTE` FOREIGN KEY (`id_fabricante`) REFERENCES `fabricante` (`id_fabricante`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_PRODUCTO_UNIDAD` FOREIGN KEY (`unidad_id`) REFERENCES `unidad_medida` (`unidad_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -503,17 +503,17 @@ DROP TABLE IF EXISTS `producto_historial`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `producto_historial` (
   `id_historial` int NOT NULL AUTO_INCREMENT,
-  `producto_codigo` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `producto_nombre` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `producto_nombre_nuevo` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `producto_codigo` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `producto_nombre` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `producto_nombre_nuevo` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `producto_precio_venta` decimal(10,2) DEFAULT NULL,
   `producto_precio_venta_nuevo` decimal(10,2) DEFAULT NULL,
-  `prod_serv_tipo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `prod_serv_tipo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `fecha_historial` datetime DEFAULT NULL,
   PRIMARY KEY (`id_historial`) USING BTREE,
   KEY `fkey_productocodigo_historial` (`producto_codigo`) USING BTREE,
   KEY `fkey_productonombre_historial` (`producto_nombre`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -535,15 +535,15 @@ DROP TABLE IF EXISTS `proveedor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proveedor` (
   `proveedor_id` int NOT NULL AUTO_INCREMENT,
-  `proveedor_numcontacto` varchar(17) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `proveedor_contacto` varchar(150) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `proveedor_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `proveedor_numcontacto` varchar(17) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `proveedor_contacto` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `proveedor_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `persona_id` int DEFAULT NULL,
-  `proveedor_razonsocial` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `proveedor_razonsocial` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`proveedor_id`) USING BTREE,
   KEY `FK_PROVEEDOR_PERSONA` (`persona_id`) USING BTREE,
   CONSTRAINT `FK_PROVEEDOR_PERSONA` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`persona_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -565,11 +565,11 @@ DROP TABLE IF EXISTS `rol`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rol` (
   `rol_id` int NOT NULL AUTO_INCREMENT,
-  `rol_nombre` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `rol_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `rol_nombre` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `rol_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `rol_feregistro` date DEFAULT NULL,
   PRIMARY KEY (`rol_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -594,15 +594,15 @@ CREATE TABLE `tarea` (
   `detalletransaccion_id` int DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
-  `tarea_notas` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `estado` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tarea_notas` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `estado` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `usuario_id` int DEFAULT NULL,
   PRIMARY KEY (`id_tarea`) USING BTREE,
   KEY `tarea_ibfk_1` (`detalletransaccion_id`) USING BTREE,
   KEY `usuario_id` (`usuario_id`) USING BTREE,
   CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`detalletransaccion_id`) REFERENCES `detalle_transaccion` (`detalletransaccion_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `tarea_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -629,7 +629,7 @@ CREATE TABLE `transaccion_proveedor` (
   KEY `transaccion_id` (`transaccion_id`) USING BTREE,
   CONSTRAINT `transaccion_proveedor_ibfk_2` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedor` (`proveedor_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `transaccion_proveedor_ibfk_3` FOREIGN KEY (`transaccion_id`) REFERENCES `transacciones` (`transaccion_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -652,17 +652,17 @@ DROP TABLE IF EXISTS `transaccion_vehiculo`;
 CREATE TABLE `transaccion_vehiculo` (
   `id_transaccion` int NOT NULL,
   `id_vehiculo` int NOT NULL,
-  `nivel_combustible` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `vehiculo_km/millas` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nivel_combustible` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_km/millas` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `id_usuario` int DEFAULT NULL COMMENT 'Campo para el registro del usuario tipo mecanico que hara los servicios al vehiculo',
-  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
   PRIMARY KEY (`id_transaccion`,`id_vehiculo`) USING BTREE,
   KEY `fk_tranveh_idveh` (`id_vehiculo`) USING BTREE,
   KEY `fk_tranveh_idusuario` (`id_usuario`) USING BTREE,
   CONSTRAINT `fk_tranveh_idtran` FOREIGN KEY (`id_transaccion`) REFERENCES `transacciones` (`transaccion_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tranveh_idusuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`usuario_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tranveh_idveh` FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -684,27 +684,27 @@ DROP TABLE IF EXISTS `transacciones`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transacciones` (
   `transaccion_id` int NOT NULL AUTO_INCREMENT,
-  `id_correlativo` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `transaccion_tipocomprobante` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `transaccion_seriecomprobante` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `transaccion_numcomprobante` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `id_correlativo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `transaccion_tipocomprobante` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `transaccion_seriecomprobante` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `transaccion_numcomprobante` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `transaccion_fecha` datetime DEFAULT NULL,
   `transaccion_impuesto` decimal(10,2) DEFAULT NULL,
   `transaccion_total` decimal(10,2) DEFAULT NULL,
-  `transaccion_estatus` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `transaccion_estatus` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `transaccion_descuento` decimal(10,2) DEFAULT NULL,
   `transaccion_porcentaje` decimal(2,2) DEFAULT NULL,
-  `transaccion_observaciones` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci,
+  `transaccion_observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
   `persona_id` int DEFAULT NULL,
   `usuario_id` int DEFAULT NULL,
-  `transaccion_tipo` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `transaccion_tipo` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `transaccion_cantidadpago` decimal(10,2) DEFAULT '0.00',
   PRIMARY KEY (`transaccion_id`) USING BTREE,
   KEY `usuario_id` (`usuario_id`) USING BTREE,
   KEY `persona_id` (`persona_id`) USING BTREE,
   CONSTRAINT `transacciones_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `transacciones_ibfk_3` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`persona_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=283 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=283 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -726,12 +726,12 @@ DROP TABLE IF EXISTS `unidad_medida`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `unidad_medida` (
   `unidad_id` int NOT NULL AUTO_INCREMENT,
-  `unidad_nombre` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `unidad_abreviatura` char(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `unidad_nombre` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `unidad_abreviatura` char(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `unidad_fregistro` date DEFAULT NULL,
-  `unidad_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `unidad_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`unidad_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -753,14 +753,14 @@ DROP TABLE IF EXISTS `usuario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `usuario_id` int NOT NULL AUTO_INCREMENT,
-  `usuario_nombre` varchar(40) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `usuario_password` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `usuario_nombre` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `usuario_password` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `usuario_intento` int NOT NULL,
-  `usuario_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `usuario_estatus` enum('ACTIVO','INACTIVO') CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `rol_id` int NOT NULL DEFAULT '0',
-  `usuario_imagen` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `usuario_imagen` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `persona_id` int DEFAULT NULL,
-  `usuario_tipo` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT 'USUARIO',
+  `usuario_tipo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT 'USUARIO',
   `usuario_passwordtemp` int DEFAULT '0',
   PRIMARY KEY (`usuario_id`) USING BTREE,
   UNIQUE KEY `usuario_nombre` (`usuario_nombre`) USING BTREE,
@@ -768,7 +768,7 @@ CREATE TABLE `usuario` (
   KEY `FK_USUARIO_PERSONA` (`persona_id`) USING BTREE,
   CONSTRAINT `FK_USUARIO_PERSONA` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`persona_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_USUARIO_ROL` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`rol_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -790,16 +790,16 @@ DROP TABLE IF EXISTS `vehiculo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehiculo` (
   `id_vehiculo` int NOT NULL AUTO_INCREMENT,
-  `vehiculo_placa` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `vehiculo_placa` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `vehiculo_anio` year DEFAULT NULL,
-  `vehiculo_transmision` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `vehiculo_tipo_combustible` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `vehiculo_num_chasis` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `vehiculo_num_motor` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `vehiculo_observaciones` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci,
-  `vehiculo_imagen` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `vehiculo_tipo` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `vehiculo_estado` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `vehiculo_transmision` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_tipo_combustible` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_num_chasis` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_num_motor` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_observaciones` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci,
+  `vehiculo_imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_tipo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `vehiculo_estado` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `id_modelo` int DEFAULT NULL,
   `id_cliente` int DEFAULT NULL,
   PRIMARY KEY (`id_vehiculo`) USING BTREE,
@@ -807,7 +807,7 @@ CREATE TABLE `vehiculo` (
   KEY `fk_vehiculo_cliente` (`id_cliente`) USING BTREE,
   CONSTRAINT `fk_vehiculo_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`cliente_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_vehiculo_modelo` FOREIGN KEY (`id_modelo`) REFERENCES `modelo` (`id_modelo`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -833,7 +833,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `strSplit`(cadena VARCHAR(255), delimitador VARCHAR(12), posicion INT) RETURNS varchar(255) CHARSET utf8mb4 COLLATE utf8mb4_unicode_ci
+CREATE DEFINER=`root`@`localhost` FUNCTION `strSplit`(cadena VARCHAR(255), delimitador VARCHAR(12), posicion INT) RETURNS varchar(255) CHARSET utf8mb4 COLLATE utf8mb4_spanish_ci
 BEGIN
      RETURN ltrim(replace(substring(substring_index(cadena, delimitador, posicion), length(substring_index(cadena, delimitador, posicion - 1)) + 1), delimitador, ''));
 END ;;

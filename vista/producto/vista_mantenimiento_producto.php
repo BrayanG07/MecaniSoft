@@ -20,7 +20,7 @@
 
                     <div class="row my-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO PRODUCTO</h2>
+                            <h3 class="m-0">Mantenimiento producto</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             <button class="btn btn-primary px-4" id="btnBarcodes">Barcodes</button>

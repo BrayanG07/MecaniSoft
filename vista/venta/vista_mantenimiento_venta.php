@@ -21,7 +21,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO DE VENTA</h2>
+                            <h3 class="m-0">Mantenimiento de venta</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             <button class="btn btn-primary px-5" id="btnReporteVenta">Reporte Venta</button>
@@ -103,7 +103,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
         if (mes < 10) {
             mes = '0' + mes;
         }
-        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + dia;
+        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + '01';
         document.querySelector('#txtFechaFin').value = year + '-' + mes + '-' + dia;
         listarVenta();
         // generarNotifiaciones();

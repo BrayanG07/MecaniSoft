@@ -20,7 +20,7 @@
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO DE INGRESO</h2>
+                            <h3 class="m-0">Mantenimiento de ingreso</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             <button class="btn btn-info" id="btnAgregarIngreso" >Nuevo Ingreso</button>
@@ -114,7 +114,7 @@
         if (mes < 10) {
             mes = '0' + mes;
         }
-        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + dia;
+        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + '01';
         document.querySelector('#txtFechaFin').value = year + '-' + mes + '-' + dia;
         listarIngreso();
         // generarNotifiaciones();

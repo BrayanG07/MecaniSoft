@@ -21,7 +21,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">VISTA DE BITACORA </h2>
+                            <h3 class="m-0">Vista de bitacora</h3>
                         </div>
                         
                     </div>

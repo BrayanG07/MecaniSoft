@@ -21,7 +21,7 @@
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <h2 class="m-0">MANTENIMIENTO DE SALIDAS</h2>
+                            <h3 class="m-0">Mantenimiento de salidas</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             <button class="btn btn-info px-5" id="btnAgregarMovimiento">Nueva Salida</button>
@@ -90,7 +90,7 @@
         if (mes < 10) {
             mes = '0' + mes;
         }
-        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + dia;
+        document.querySelector('#txtFechaInicio').value = year + '-' + mes + '-' + '01';
         document.querySelector('#txtFechaFin').value = year + '-' + mes + '-' + dia;
         listarMovimientos();
         // generarNotifiaciones();

@@ -64,7 +64,7 @@ $html = '
     WHERE t.transaccion_estatus IN ('ORDEN FACTURADA', 'FACTURADO') 
     AND YEAR(t.transaccion_fecha) = YEAR(NOW())
     AND p.prod_serv_tipo = 'PRODUCTO'
-    GROUP BY dt.producto_id
+    GROUP BY dt.detalletransaccion_nombrepro, dt.producto_id
     ORDER BY CANTIDAD_PRODUCTOS DESC
     LIMIT 10";
     $html .= '

@@ -17,14 +17,14 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
 <input type="hidden" id="idUsuarioLog" value="<?php echo ($_SESSION['S_IDUSUARIO']); ?>">
 
 <div class="content-header">
-  <div class="container-fluid">
+  <div class="container-fluid border p-3 shadow-lg rounded">
     <div class="row mb-2">
       <div class="col-md-12">
         <div class="ibox ibox-default">
 
           <div class="row mb-3">
             <div class="col-sm-6">
-              <h2 class="m-0">MANTENIMIENTO ACCESOS</h2>
+              <h3 class="m-0">Mantenimiento accesos</h3>
             </div>
             <div class="col-sm-6 text-right">
               <button class="btn btn-info" onclick="abrirModal()">Agregar Acceso</button>

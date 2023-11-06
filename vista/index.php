@@ -682,7 +682,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 mes = '0' + mes;
             }
 
-            document.querySelector('#txtFechaInicioDash').value = year + '-' + mes + '-' + dia;
+            document.querySelector('#txtFechaInicioDash').value = year + '-' + mes + '-' + '01';
             document.querySelector('#txtFechaFinDash').value = year + '-' + mes + '-' + dia;
             obtenerDatosWidgets();
         });

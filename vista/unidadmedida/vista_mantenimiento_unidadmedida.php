@@ -19,7 +19,7 @@ foreach ($_SESSION['S_ACCESOS'] as $ac) {
         <div class="ibox ibox-default">
           <div class="row my-3">
             <div class="col-sm-6">
-              <h2 class="m-0">MANTENIMIENTO UNIDAD DE MEDIDA</h2>
+              <h3 class="m-0">Mantenimiento unidad de medida</h3>
             </div>
             <div class="col-sm-6 text-right">
               <button class="btn btn-info" onclick="abrirModal()">Nuevo Registro</button>
