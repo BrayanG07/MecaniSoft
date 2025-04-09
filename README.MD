@@ -2,11 +2,9 @@
 
 ## Instalacion
 - Crear la base de datos, la base de datos de ambiente de desarrollo se encuentra en db/database_developer.sql
-```
-Database name: db_mecanisoft
-Charset: utf8mb4
-Collation: utf8mb4_general_ci
-```
+1. <b>Database name:</b> db_mecanisoft
+2. <b>Charset:</b> utf8mb4
+3. <b>Collation:</b> utf8mb4_general_ci
 
 - Actualizar las credenciales conexion a la base de datos en los archivos:
 ```
