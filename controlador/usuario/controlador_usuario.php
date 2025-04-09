@@ -288,13 +288,13 @@ switch ($opcion) {
         $top10ServiciosMenosSolci = $modelo5->getTop10ServiciosMenosSolicitados($fechaInicio, $fechaFin);
         $mesesMasVentas = $modelo6->obtenerMesesMasVentas();
 
-        array_push($arregloGeneral, $arregloproductoMasVendidos);
-        array_push($arregloGeneral, $arregloServiciosSolicitados);
-        array_push($arregloGeneral, $arregloTop10Ingresos);
-        array_push($arregloGeneral, $top10ProductosMenosvendidos);
-        array_push($arregloGeneral, $top10ProductosMenosIng);
-        array_push($arregloGeneral, $top10ServiciosMenosSolci);
-        array_push($arregloGeneral, $mesesMasVentas);
+        array_push($arregloGeneral, $arregloproductoMasVendidos == null ? [] : $arregloproductoMasVendidos);
+        array_push($arregloGeneral, $arregloServiciosSolicitados == null ? [] : $arregloServiciosSolicitados);
+        array_push($arregloGeneral, $arregloTop10Ingresos == null ? [] : $arregloTop10Ingresos);
+        array_push($arregloGeneral, $top10ProductosMenosvendidos == null ? [] : $top10ProductosMenosvendidos);
+        array_push($arregloGeneral, $top10ProductosMenosIng == null ? [] : $top10ProductosMenosIng);
+        array_push($arregloGeneral, $top10ServiciosMenosSolci == null ? [] : $top10ServiciosMenosSolci);
+        array_push($arregloGeneral, $mesesMasVentas == null ? [] : $mesesMasVentas);
         
         echo json_encode($arregloGeneral);
         break;
