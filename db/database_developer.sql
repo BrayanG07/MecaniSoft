@@ -4049,7 +4049,7 @@ AND t.transaccion_fecha BETWEEN FECHA_INICIO AND FECHA_FIN) as cantidad_de_trans
 	INNER JOIN persona p ON u.persona_id = p.persona_id
 WHERE t.transaccion_estatus IN ('ORDEN FACTURADA', 'FACTURADO') 
 AND t.transaccion_fecha BETWEEN FECHA_INICIO AND FECHA_FIN 
-GROUP BY u.usuario_nombre, p.persona_nombre 
+GROUP BY u.usuario_nombre, p.persona_nombre, p.persona_apmat,p.persona_apepat 
 ORDER BY COUNT(t.usuario_id) DESC 
 LIMIT 1) as empleado_mas_ventas,
 
