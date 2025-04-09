@@ -4057,7 +4057,7 @@ LIMIT 1) as empleado_mas_ventas,
 AND t.transaccion_fecha BETWEEN FECHA_INICIO AND FECHA_FIN) as cantidad_movimientos,
 
 (SELECT COUNT(*) FROM transacciones t WHERE t.transaccion_estatus = 'AJUSTE'
-AND t.transaccion_fecha BETWEEN FECHA_INICIO AND FECHA_FIN) as cantidad_ajustes
+AND t.transaccion_fecha BETWEEN FECHA_INICIO AND FECHA_FIN) as cantidad_ajustes ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
